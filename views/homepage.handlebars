@@ -1,22 +1,22 @@
 <!-- Loop over each object in the projects array -->
 {{#each posts as |post|}}
   <div class='row mb-4 post'>
-    <div class='card'>
+    <div class='card' style='width: 90em'>
       <div class='card-header'>
         <!-- Call helper function with triple brackets to render the emoji span as HTML -->
         {{{get_emoji}}}
         <a href='/post/{{post.id}}'>{{post.title}}</a>
+      </div>
+      <div>
+        {{post.content}}
       </div>
 
       <div class='card-body'>Created by
         {{post.user.name}}
         on
         {{format_date post.date_created}}
-
         <div>
-          <p>
-            {{post.text}}
-          </p>
+          {{post.text}}
         </div>
       </div>
     </div>
