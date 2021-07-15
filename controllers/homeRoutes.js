@@ -69,43 +69,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-router.get('/dashboard', async (req, res) => {
-  try {
-    const postData = await Post.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-    });
-
-    const posts = postData.map((post) => post.get({ plain: true }));
-    res.render('dashboard', {
-      layout: 'dashboard',
-      postData,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/dashboard/post-edit/:id', withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id);
-
-    if (postData) {
-      const post = postData.get({ plain: true });
-
-      res.render('post-edit', {
-        layout: 'dashboard',
-        post,
-      });
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
