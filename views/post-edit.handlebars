@@ -1,29 +1,44 @@
-
-<div class="row mt-4">
-  <div class="col-md-6">
+{{ log }}
+<div class='row mt-4'>
+  <div class='col-md-6'>
     <h3>Your Dashboard</h3>
 
-    <form class="form new-post-form">
-    <input type="hidden" value="{{id}}">
-      <div class="form-group">
-        <label for="post-title">Title:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title"value="{{ title }}"/> 
+    <form class='form new-post-form'>
+      <input type='hidden' value='{{id}}' />
+      <div class='form-group'>
+        <label for='post-title'>Title:</label>
+        <input
+          class='form-input'
+          type='text'
+          id='post-title'
+          name='post-title'
+          value='{{title}}'
+        />
       </div>
 
-      <div class="form-group">
-        <label for="post-content">Content:</label>
-        <textarea class="form-input" id="post-content" name="post-content"> {{ content}} </textarea>
+      <div class='form-group'>
+        <label for='post-content'>Content:</label>
+        <textarea class='form-input' id='post-content' name='post-content'>
+          {{content}}
+        </textarea>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">UPDATE</button>
-    </div>
-  <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
-    </div>
+      <div class='col-md-4'>
+        <button
+          class='btn btn-primary'
+          type='submit'
+          id='update-post-btn'
+        >Update</button>
+      </div>
+        <button
+          class='btn btn-primary'
+          type='submit'
+          id='delete-post-btn' data-id='{{id}}'
+        >Delete</button>
+      </div>
+    
     </form>
   </div>
 
-  
 </div>
-<script src="/js/post-edit.js"></script>
+<script src='/js/post-edit.js'></script>
 
