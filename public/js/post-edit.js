@@ -8,7 +8,7 @@ const updatePostHandler = async (event) => {
 
   console.log("title, conent:", title, content);
   
-  if (title && content) {
+  if (id && title && content) {
     const response = await fetch(`/api/posts/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ title, content }),
@@ -39,10 +39,6 @@ const delButtonHandler = async (event) => {
       }
     }
   };
-
-  // document
-  // .querySelector('.post-list')
-  // .addEventListener('submit', delButtonHandler);
 
   document.querySelector('#update-post-btn').addEventListener('click', updatePostHandler);
   document.querySelector('#delete-post-btn').addEventListener('click', delButtonHandler);

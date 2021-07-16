@@ -40,7 +40,10 @@ router.delete('/:id', withAuth, async (req, res) => {
 router.put('/:id', withAuth, async(req, res) => {
   try {
     const postData = await Post.update(
-      { post: req.body.post },
+      { 
+        title: req.body.title,
+        content: req.body.content 
+      },
       { where: { id: req.params.id } }
     );
   
