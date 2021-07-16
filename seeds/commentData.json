@@ -1,16 +1,19 @@
 [
   {
       "comment": "Great post!",
+      "date_created": "2021-07-03 02:01:53",
       "user_id": "2",
       "post_id": "1"
   },  
   {
       "comment": "Awesome post!",
+      "date_created": "2021-07-03 02:01:53",
       "user_id": "3",
       "post_id": "2"
   },  
   {
       "comment": "This post made me think.",
+      "date_created": "2021-07-03 02:01:53",
       "user_id": "1",
       "post_id": "2"
   }  
