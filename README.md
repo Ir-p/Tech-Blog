@@ -8,7 +8,7 @@ clone me, or fork me
 
 🌎 live on [heroku](https://tech-blog-64287.herokuapp.com/)
 
-Screen shot of the deployed app: ![Screen Shot Of The Deployed App](assets/screenshot.png)
+Screen shot of the deployed app: ![Screen Shot Of The Deployed App](Assets/screenshot.png)
 
 
 
