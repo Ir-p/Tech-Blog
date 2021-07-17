@@ -3,18 +3,19 @@ const { Comment, Post, User } = require('../models');
 
 const withAuth = require('../utils/auth');
 
-router.get('/post/:id/comments/user-comment', withAuth, async (req, res) => {
-  try {
-    const commentData = await Comment.findAll({
-      ...req.body,
-      logged_in: req.session.logged_in,
-      user_id: req.session.user_id,
-    });
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
+router.get('/post/:id', withAuth, async (req, res) => {
+    try {
+            const postData = await Post.findAll({
+              include: [{
+                model: Comment,
+                attributes: ['id','comment'],
+              }],
+            });
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     // Serialized data
     res.render('user-comment', {
-      ...comments,
+      ...posts,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
     });
@@ -24,7 +25,7 @@ router.get('/post/:id/comments/user-comment', withAuth, async (req, res) => {
 });
 
 // new comment
-router.get('/new', withAuth, async (req, res) => {
+router.get('/post/:id/comments', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findAll({});
 
