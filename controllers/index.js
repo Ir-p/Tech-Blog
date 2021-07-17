@@ -12,5 +12,9 @@ router.use('/api', apiRoutes);
 const postRoutes = require('./postRoutes');
 router.use('/dashboard', postRoutes);
 
+// comment routes
+const postRoutes = require('./commentRoutes');
+router.use('/comments', postRoutes);
+
 
 module.exports = router;
