@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-auto">
+    <div class="card-header">
+      <div>
+        <span class="fs-7 fw-bold"><a href="/comments/new" class="href">Add New Comment</a>  </span> 
+      </div>
+    </div>
+    {{#each posts as |post|}}
+      <div class="card-body">
+        <div class="fw-bold">
+          <a href={{post.post}} target="_blank">{{post.title}}</a> 
+        </div>
+        {{#each post.comments as |comment|}}
+          {{log postt}}
+          {{format_date date_created}}: <div class="fst-italic"><a href="/comments/edit/{{comment.id}}">{{comment.comment}}</a></div>
+        {{/each}}
+      </div>
+      <hr />
+    {{/each}}   
+  </div>
+</div>

@@ -18,7 +18,7 @@ router.get('/', withAuth, async(req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
     console.log('posts:', posts);
     // Pass serialized data and session flag into template
-    res.render("mycomments", {
+    res.render("user-comments", {
       layout: "homepage",
       links,
       logged_in: req.session.logged_in,
@@ -36,10 +36,8 @@ router.get('/new', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
     });
-  
-    // Serialize data so the template can read it
+
     const posts = postData.map((post) => post.get({ plain: true }));
-    // console.log(links);
     res.render('comment', { 
       layout: 'homepage',
       links, 
@@ -50,3 +48,5 @@ router.get('/new', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
