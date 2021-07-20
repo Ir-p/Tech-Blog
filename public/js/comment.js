@@ -2,18 +2,16 @@ const createCommentHandler = async (event) => {
     console.log("hello");
     event.preventDefault();
 
-    // const post_id = document.querySelector('#comment-title').value.trim();
+    const post_id = document.querySelector('#comment-post-id').value.trim();
     const comment = document.querySelector('#comment-content').value.trim();
-    console.log(comment);
+    console.log('comment and post_id:', comment, post_id);
     
-    if (comment) {
+    if (comment && post_id) {
       const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ comment }),
+        body: JSON.stringify({ comment, post_id }),
         headers: { 'Content-Type': 'application/json' }
       });
-  
-
       if (response.ok) {
         document.location.replace('/');
       } else {

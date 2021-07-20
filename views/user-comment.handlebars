@@ -3,18 +3,17 @@
 <div class="row">
   <div class="col-auto">
     <h2>Add a comment</h2>
-  
     <div class="body">
       <form class="form comment-form">
-        {{#each posts as |post|}}
+       
         <div class="form-group mb-3">
-          <label for="comment-title" class="form-label fw-bold">Select a post to comment on</label>
-          <select class="form-select" id="comment-title">
-            
-              <option value="{{post.comment.post_id}}">{{post.comment.comment}}</option>
+          <label for="comment-post-id" class="form-label fw-bold">Select a post to comment on</label>
+          <select class="form-select" style="width: 10em" id="comment-post-id">
+            {{#each posts}}
+              <option value="{{id}}">{{title}}</option>
+            {{/each}}
           </select>
         </div>
-        {{/each}}
         <div class="form-group mb-3">
           <label for="comment-content" class="form-label fw-bold">Comment</label>
           <textarea class="form-control" id="comment-content" rows="5"></textarea>
