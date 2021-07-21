@@ -35,8 +35,11 @@
         <h4><a href="/dashboard/post-edit/{{post.id}}">{{post.title}}</a></h4>
         <p>{{post.content}}</p>
       </div>
-      
+      {{#each comments}}
+      <p>{{this.comment}} Text!!!</p>
+      {{/each}}
     </div>
+
     {{/each}}
   </div>
   {{/if}}

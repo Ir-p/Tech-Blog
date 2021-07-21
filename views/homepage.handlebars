@@ -18,6 +18,9 @@
         <div>
           {{post.text}}
         </div>
+         {{#each comments}}
+      <p>{{this.comment}} Text!!!</p>
+      {{/each}}
       </div>
     </div>
   </div>

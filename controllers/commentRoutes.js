@@ -12,7 +12,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
               }],
             });
     const posts = postData.map((post) => post.get({ plain: true }));
-
+            
     // Serialized data
     res.render('user-comment', {
       ...posts,
@@ -26,13 +26,16 @@ router.get('/post/:id', withAuth, async (req, res) => {
 
 // new comment
 router.get('/post/:id/comments', withAuth, async (req, res) => {
+ 
   try {
-    const commentData = await Comment.findAll({});
+    const postData = await Post.findAll({
+      include: [{model: Comment, attributes: ['comment']}]
+    });
 
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
-    res.render('comment', {
-      ...comments,
-      user_name: req.session.user_name,
+    const posts = postData.map((post) => post.get({ plain: true }));
+    console.log('posts:', posts)
+    res.render('user-comment', {
+      ...posts,
     });
   } catch (err) {
     res.status(500).json(err);
