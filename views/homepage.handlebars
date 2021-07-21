@@ -11,16 +11,19 @@
         {{post.content}}
       </div>
 
-      <div class='card-body'>Created by
+      <hr class='card-body'>Created by
         {{post.user.name}}
         on
         {{format_date post.date_created}}
         <div>
           {{post.text}}
         </div>
+        </hr>
          {{#each comments}}
-      <p>{{this.comment}} Text!!!</p>
+         
+      <p>"{{this.comment}}" Posted by {{this.user.name}}</p>
       {{/each}}
+      </hr>
       </div>
     </div>
   </div>
